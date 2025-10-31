@@ -28,9 +28,9 @@ and construct normalized, calorie-scaled variables.
 **Initial Formulas:**
 
 $$
-\text{sugar\_density} = \frac{\text{sugar}}{\text{cal} + \varepsilon}, \quad
-\text{prot\_density} = \frac{\text{prot}}{\text{cal} + \varepsilon}, \quad
-\text{sod\_density} = \frac{\text{sod}}{\text{cal} + \varepsilon}
+sugar_density = sugar / (cal + ε)
+prot_density  = prot  / (cal + ε)
+sod_density   = sod   / (cal + ε)
 $$
 
 Energy contributions:
