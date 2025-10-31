@@ -26,10 +26,11 @@ We parse the field $\text{nutrition} \rightarrow [\text{cal}, \text{fat}, \text{
 and construct normalized, calorie-scaled variables.
 
 **Initial Formulas:**
-
-sugar_density = sugar / (cal + ε)
+```yaml
+sugar_density = sugar / (cal + ε) ; 
 prot_density  = prot  / (cal + ε)
 sod_density   = sod   / (cal + ε)
+```
 
 Energy contributions:
 
