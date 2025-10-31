@@ -27,29 +27,25 @@ and construct normalized, calorie-scaled variables.
 
 **Initial Formulas:**
 ```yaml
-sugar_density = sugar / (cal + ε) ; 
+sugar_density = sugar / (cal + ε) 
 prot_density  = prot  / (cal + ε)
 sod_density   = sod   / (cal + ε)
 ```
 
 Energy contributions:
-
-$$
-\text{fat\_E\%} = \frac{9\,\text{fat}}{\text{cal}}, \quad
-\text{carb\_E\%} = \frac{4\,\text{carbs}}{\text{cal}}, \quad
-\text{prot\_E\%} = \frac{4\,\text{prot}}{\text{cal}}
-$$
+```yaml
+fat_E%  = 9 * fat   / cal
+carb_E% = 4 * carbs / cal
+prot_E% = 4 * prot  / cal
+```
 
 Composite indicators:
-
-$$
-\begin{aligned}
-\text{sweet\_idx} &= 0.55\,\text{sugar\_E\%} + 0.45\,\text{sugar\_density} \\
-\text{savory\_idx} &= 0.55\,\text{prot\_density} + 0.45\,\frac{\text{sod\_density}}{10} \\
-\text{hybrid\_idx} &= \min(\text{sweet\_idx}, \text{savory\_idx}) \\
-\text{lean\_idx} &= 1 - \text{fat\_E\%}
-\end{aligned}
-$$
+```yaml
+sweet_idx  = 0.55 * sugar_E%   + 0.45 * sugar_density
+savory_idx = 0.55 * prot_density + 0.45 * (sod_density / 10)
+hybrid_idx = min(sweet_idx, savory_idx)
+lean_idx   = 1 - fat_E%
+```
 
 All metrics are bounded and ε-regularized to avoid numerical instability.
 
